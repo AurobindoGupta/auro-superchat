@@ -33,6 +33,7 @@ function App() {
     <div className="App">
       <header >
       <h1>💬</h1>
+      < SignOut />
       </header>
       
       <section>
@@ -57,15 +58,16 @@ function SignIn(){
 
 function SignOut() {
   return auth.currentUser && (
-    <button onClick = {() =>auth.SignOut()}>Sign Out</button>
+    <button className="sign-out" onClick = {() => auth.signOut()}>Sign Out</button>
   )
 }
 
 function ChatRoom(){
+
   const dummy = useRef();
 
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const query = messagesRef.orderBy('createdAt').limit(35);
 
   const [messages] = useCollectionData(query, { idField: 'id'});
 
@@ -74,6 +76,13 @@ function ChatRoom(){
   const sendMessage = async (e) =>{
 
     e.preventDefault();
+    console.log(formValue);
+
+    if( formValue ==='') {
+      alert("Kuch likh do");
+    }
+
+    else{
 
     const {uid, photoURL} = auth.currentUser;
 
@@ -83,21 +92,24 @@ function ChatRoom(){
       uid,
       photoURL
 
-    })
+    
+  })
 
     setFormValue('');
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
-  }
+    dummy.current.scrollIntoView({behavior: 'smooth'});
+  
+  }   
+}
 
   return(
 
     <>
-    <div>
+    <main>
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-      <div ref={dummy}></div>
-    </div>
+      <span ref={dummy}></span>
+    </main>
     <form onSubmit={sendMessage}>
-      <input  value={formValue} onChange={ (e) => setFormValue(e.target.value)}/>
+      <input  value={formValue} onChange={ (e) => setFormValue(e.target.value)} placeholder="write something...."/>
       <button type="submit">✔️</button>
     </form>
     </>
@@ -115,6 +127,7 @@ function ChatMessage(props) {
 
   return (
     < div className ={`message ${messageClass}`}>
+      
       <img src={photoURL} />
       <p>{text}</p>
     </div>

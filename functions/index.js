@@ -19,6 +19,7 @@ exports.detectEvilUsers = functions.firestore.document('messages/{msgId}').onCre
     const {text,uid} = doc.data();
 
     if (filter.isProfane(text)){
+
         const cleaned = filter.clean(text);
         await doc.ref.update({text  `BANNED ${cleaned}`});
         

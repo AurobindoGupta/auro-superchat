@@ -10,8 +10,8 @@ body {
 
 .App header {
   background-color: #181717;
-  height: 5vh;
-  min-height: 50px;
+  height: 8vh;
+  min-height:50px;
   color: white;
   position: fixed;
   width: 100%;
@@ -21,7 +21,7 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 99;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -29,7 +29,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 25vh;
   background-color: rgb(40, 37, 53);
 }
 
@@ -55,7 +55,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 form {
-  height: 5vh;
+  height: 8vh;
   position: fixed;
   bottom: 0;
   background-color: rgb(24, 23, 23);
@@ -101,11 +101,11 @@ button:disabled {
 }
 
 
-.sign-in {
+.sign-out {
   color: #282c34;
   background: white;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 
