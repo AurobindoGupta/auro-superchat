@@ -10,7 +10,7 @@ body {
 
 .App header {
   background-color: #181717;
-  height: 10vh;
+  height: 5vh;
   min-height: 50px;
   color: white;
   position: fixed;
@@ -55,7 +55,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 form {
-  height: 10vh;
+  height: 5vh;
   position: fixed;
   bottom: 0;
   background-color: rgb(24, 23, 23);
@@ -72,6 +72,7 @@ form button {
 
 
 input {
+
   line-height: 1.5;
   width: 100%;
   font-size: 1.5rem;
